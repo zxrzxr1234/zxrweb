@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <title>Signin</title>
+    <link href="../../dist/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.css}" rel="stylesheet">
+    <link href="signin.css" th:href="@{/asserts/css/signin.css}" rel="stylesheet">
+    <script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/webjars/jquery/3.3.1-1/jquery.js}"></script>
+</head>
+
+<body class="text-center">
+<form class="form-signin" accept-charset="UTF-8"  th:action="@{/checkLogin}" content="application/json" method="post">
+    <img class="mb-4" src="asserts/img/bootstrap-solid.svg"  th:src="@{/asserts/img/bootstrap-solid.svg}" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
+    <label for="inputEmail" class="sr-only" th:text="#{login.emailaddress}">Email address</label>
+    <input type="email" id="inputEmail" name="email" class="form-control" th:placeholder="#{login.emailaddress}" placeholder="Email address" required autofocus>
+    <label for="inputPassword" class="sr-only" th:text="#{login.password}">Password</label>
+    <input type="password" id="inputPassword" name="password" class="form-control" th:placeholder="#{login.password}" placeholder="Password" required>
+    <p style="color: red" th:text="${message}" th:if="${not #strings.isEmpty(message)}"></p>
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" value="remember-me"> [[#{login.rememberme}]]
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" id="btnSubmit" th:text="#{login.signin}">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    <a class="btn btm-sm" th:href="@{/login(locale='zh_CN')}">中文</a>
+    <a class="btn btm-sm" th:href="@{/login(locale='en_US')}">English</a>
+</form>
+</body>
+</html>
